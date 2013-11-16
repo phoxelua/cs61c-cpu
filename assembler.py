@@ -36,7 +36,7 @@ labelre = re.compile(r"""^(?P<labels>.*:)?(?P<gunk>[^:]*)$""")
 commentre = re.compile(r"""^(?P<important>[^#]*)(?P<comment>#.*)?$""")
 alnumunderre = re.compile(r"""^\w+$""")
 
-rtype_re  = re.compile(r'''^(?P<instr>(or|and|add|sub|sllv|srlv|srav|slt|addp8|subp8|mulp8|divp8))\s+(?P<rd>\$r[0,1,2,3])\s+(?P<rs>\$r[0,1,2,3])\s+(?P<rt>\$r[0,1,2,3])$''')
+rtype_re  = re.compile(r'''^(?P<instr>(or|and|add|sub|sllv|srlv|srav|slt|addp8|subp8))\s+(?P<rd>\$r[0,1,2,3])\s+(?P<rs>\$r[0,1,2,3])\s+(?P<rt>\$r[0,1,2,3])$''')
 immed_re  = re.compile(r'''^(?P<instr>(ori|addi|andi))\s+(?P<rt>\$r[0,1,2,3])\s+(?P<rs>\$r[0,1,2,3])\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
 twoReg_re = re.compile(r'''^(?P<instr>(ori|addi|andi))\s+(?P<rt>\$r[0,1,2,3])\s+(?P<rs>\$r[0,1,2,3])$''')
 lui_re    = re.compile(r'''^(?P<instr>lui)\s+(?P<rt>\$r[0,1,2,3])\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
@@ -74,10 +74,8 @@ functs = {
   'slt':5,
   'or':6,
   'and':7,
-  'mulp8':8,
-  'divp8':9,
-  'addp8':10,
-  'subp8':11
+  'addp8':8,
+  'subp8':9
 }
 def isPseudoInstruction(s):
   return la_re.match(s) or li_re.match(s)
