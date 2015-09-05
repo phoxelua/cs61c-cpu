@@ -1,6 +1,6 @@
 OCTAL:
 	# init
-	andi	$r0, $r0, 0x0
+	addi	$r0, $r0, 0x0
 	# addi	$r0, $r0, 0x37
 	# sw		$r0, 0($r0)
 	# disp 	$r0, 1
@@ -29,6 +29,6 @@ OCTAL:
 	disp	$r2, 0 #display result on bundle0
 
 	#end
-	andi	$r0, $r0, 0x0 #reset 0
+	andi	$r0, $r0, -7 #reset 0
 	lw 		$r3, 2($r0)	#restore jump point
 	jr		$r3
